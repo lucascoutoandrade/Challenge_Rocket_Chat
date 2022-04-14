@@ -54,6 +54,15 @@ public class BaseTest {
 		driver.get("https://seubarriga.wcaquino.me/");
 		Thread.sleep(2000);
 
+		// set email and password
+		driver.findElement(By.xpath("//*[@id='email']")).sendKeys("lucascouto.ads@gmail.com");
+		driver.findElement(By.xpath("//*[@id='senha']")).sendKeys("88045630");
+		
+		// click on Enviar button
+		driver.findElement(By.xpath("//*[contains(text(),'Entrar')]")).click();
+		
+		// get the text from welcome
+		waitElementVisibility(By.cssSelector("body > div.alert.alert-success"));
 
 	}
 	

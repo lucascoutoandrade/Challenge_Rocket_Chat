@@ -15,17 +15,7 @@ public class ChallengeRocketChatTest extends BaseTest {
 	
 	@Test
 	public void a_mustLoginIn() {
-
 	
-	// set email and password
-	driver.findElement(By.xpath("//*[@id='email']")).sendKeys("lucascouto.ads@gmail.com");
-	driver.findElement(By.xpath("//*[@id='senha']")).sendKeys("88045630");
-	
-	// click on Enviar button
-	driver.findElement(By.xpath("//*[contains(text(),'Entrar')]")).click();
-	
-	// get the text from welcome
-	waitElementVisibility(By.cssSelector("body > div.alert.alert-success"));
 	capturedText = driver.findElement(By.cssSelector("body > div.alert.alert-success")).getText();
 	System.out.println("Captured text: "+capturedText);
 	// checkpoint
@@ -34,7 +24,10 @@ public class ChallengeRocketChatTest extends BaseTest {
 	}
 	
 	@Test
-	public void b_mustCreateAccount() {}
+	public void b_mustCreateAccount() {
+		
+		
+	}
 	
 	@Test
 	public void c_mustCreateMovement() {}
