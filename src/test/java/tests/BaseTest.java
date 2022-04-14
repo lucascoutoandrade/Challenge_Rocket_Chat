@@ -45,31 +45,21 @@ public class BaseTest {
 		driver = new ChromeDriver(chromeOptions);
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
+
+		
+		
+		
 	}
 	
-	@Before
-	public void beforeEachTest() throws InterruptedException {
-
-		// Acess the url
-		driver.get("https://seubarriga.wcaquino.me/");
-		Thread.sleep(2000);
-
-		// set email and password
-		driver.findElement(By.xpath("//*[@id='email']")).sendKeys("lucascouto.ads@gmail.com");
-		driver.findElement(By.xpath("//*[@id='senha']")).sendKeys("88045630");
-		
-		// click on Enviar button
-		driver.findElement(By.xpath("//*[contains(text(),'Entrar')]")).click();
-		
-		// get the text from welcome
-		waitElementVisibility(By.cssSelector("body > div.alert.alert-success"));
-
-	}
+//	@Before
+//	public void beforeEachTest() throws InterruptedException {
+//
+//
+//	}
 	
 	@After
-	public void depoisCadaTest() throws IOException {
+	public void afterEachTest() throws IOException {
 		String timeStamp = new SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
-		System.out.println(timeStamp);
 		
 		//Convert webdriver for takescreenshot
 		TakesScreenshot scrShot =((TakesScreenshot)driver);
@@ -77,20 +67,21 @@ public class BaseTest {
 		 File srcFile = scrShot.getScreenshotAs(OutputType.FILE);
 		 //Copy file in folder below
 		 FileUtils.copyFile(srcFile, new File("screenshots/"+name.getMethodName()+"_"+timeStamp+".png"));
-		 
+		
 	}
-
+//
 	@AfterClass
-	public static void finaliza() {
+	public static void endsTests() {
 
 		// Finish the driver
-		driver.close();
+		driver.quit();
 
 	}
 	
-	public void waitElementVisibility(By by) {
+	public boolean waitElementVisibility(By by) {
 		//Wait element from conditions
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(by));
+		return true;
 		
 	}
 
