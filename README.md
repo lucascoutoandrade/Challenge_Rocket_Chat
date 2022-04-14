@@ -11,7 +11,7 @@ Pre Requires for run tests:
  - run the comand mvn -install
 
 ##### Important #####
-The screenshots são recorded in the folder screenshots
+The screenshots are recorded in the folder screenshots
 
 
 
