@@ -12,6 +12,7 @@ Pre Requires for run tests:
 
 ##### Important #####
 The screenshots are recorded in the folder screenshots
+test
 
 
 
